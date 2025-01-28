@@ -1,0 +1,733 @@
+//timers
+$timer: 25s
+$vehicle-interval: 1.1s
+
+//sky colors
+$background: lighten(#0db9c5, 50%)
+$moon-shadow: #52b4b4
+$sky: #e8f8ff
+$day-sky-gradient: linear-gradient(#ffcc00, #ff9347) // Colores del día
+$night-sky-gradient: linear-gradient(#10172a 20%, #250900 , #b85107,)// Colores de la noche
+$sun: #fb6f23
+$smoke: #31383f
+$none: rgba(#fff, 0)
+
+//vehicle-colors
+$vehicle-color-1: #52796f
+$vehicle-color-2: #84a98c
+$vehicle-color-3: #2f3e46
+$smoke-color: #989898
+$suitcase-color: #30383f
+$white: #fff
+
+.container
+    overflow: hidden
+    width: 100%
+    height: 100%
+    z-index: 1
+    &,
+    *,
+    *::before,
+    *::after
+        top: 0
+        left: 0
+        box-sizing: border-box
+        position: absolute
+        content: ""
+
+.haze
+    position: absolute
+    top: 60%
+    left: 50%
+    transform: translateX(-50%,-50%)
+    display: flex
+    z-index: 100
+    padding: 0
+    animation: haze-movement 25s linear infinite
+    & span
+        display: block
+        position: relative
+        margin: 0 15px
+        min-width: 60%
+        height: 70px
+        background: #ebebeb
+        border-radius: 50%
+        opacity: 0
+        filter: blur(20px)
+        animation: haze 25s linear infinite
+        animation-delay: calc(var(--i) * -0.75s)
+
+    @keyframes haze
+        0%
+            transform: translateX(0) scaleX(1)
+            opacity: 0
+
+        15%
+            opacity: 0.5
+
+        50%
+            transform: translateX(-120px) translateY(-60px) scaleX(8) scaleY(2)
+            opacity: 0.5
+
+        70%
+            opacity: 0.25
+
+        100%
+            opacity: 0.1
+            transform: translateX(150px) translateY(-120px) scaleX(16) scaleY(6)
+
+@keyframes haze-movement
+    0%
+        margin-left: 500px
+    100%
+        margin-left: -1500px
+
+//salar-ground
+@mixin dune()
+    background-color: #e3e9eb
+    border: 1px solid
+    border-color: #ceeaf5
+    width: 150px
+    height: 150px
+    top: 25px
+    left: 25px
+    transform: rotate(45deg)
+    position: relative
+    border-radius: 20px
+@mixin dune-wrapper($top,$left)
+    position: absolute
+    width: 200px
+    height: 100px
+    overflow: hidden
+    top: $top
+    left: $left
+
+.salar
+    width: 100%
+    height: 100%
+.water
+    position: absolute
+    top: 50%
+    bottom: 0
+    left: -100%
+    right: -100%
+    margin: auto
+    width: 100%
+    height: 60%
+    background: $sky
+    z-index: 99
+    overflow: hidden
+    box-shadow: inset 0 0 5rem 0 rgba($smoke, 0.5)
+
+    &.light-mode
+        background: linear-gradient(rgba($sky, 0.5), $background) // Mezcla del cielo con agua
+        background-image: $day-sky-gradient, $background // Gradiente de cielo con el agua
+
+    &.dark-mode
+        background: linear-gradient(rgba($sky, 0.5), $background) // Mezcla del cielo con agua
+        background-image: $night-sky-gradient $sky // Gradiente de cielo con el agua
+
+    &:before,
+    &:after,i
+        width: 80rem
+        height: 3rem
+        border-radius: 50%
+        opacity: 0.2
+        right: 0
+        margin: auto
+        transform: scaleX(1) scaleY(0)
+        top: -1.5rem
+        border: 0.5rem solid #fff
+        box-shadow: 0 0 1rem 0.5rem $moon-shadow, inset 0 0 1rem 1rem $moon-shadow, inset 0 0 1rem #fff
+
+    &:before
+        animation: waves 6s ease-in-out infinite
+
+    &:after
+        animation: waves 8s 2s ease-in-out infinite
+
+.water>  i
+    animation: waves 3s 0.25s ease-out
+
+.salar
+    &__dune
+        width: 100%
+        position: relative
+        background: blue
+        top: 70%
+        z-index: 100
+        animation: dune-movement 11s infinite linear
+
+        &__1
+            @include dune-wrapper($top: 60px,$left: 180%)
+            div
+                @include dune()
+        &__2
+            @include dune-wrapper($top: -120px,$left: 117%)
+            div
+                @include dune()
+        &__3
+            @include dune-wrapper($top: -100px,$left: 230%)
+            div
+                @include dune()
+        &__4
+            @include dune-wrapper($top: -70px,$left: 150%)
+            div
+                @include dune()
+        &__5
+            @include dune-wrapper($top: 10px,$left: 200%)
+            div
+                @include dune()
+        &__6
+            @include dune-wrapper($top: -50px,$left: 255%)
+            div
+                @include dune()
+
+@keyframes dune-movement
+    100%
+        transform: translateX(calc(-280vw))
+@keyframes waves
+    100%
+        transform: scaleX(1.5) scaleY(7)
+        opacity: 0
+
+//vehicle
+
+.vehicle:hover + .vehicle .vehicle__body
+    animation-play-state: paused
+    background: green
+.vehicle:hover + .salar .salar__dune
+    animation-play-state: paused
+.vehicle:hover ~ .haze
+    display: none !important
+    animation-play-state: paused
+.vehicle
+    z-index: 100
+    top: 40%
+    left: 50%
+    transform: translate(-50%,-50%)
+
+    &__body
+        background: $vehicle-color-3
+        border-radius: 30px 50px 10px 5px
+        height: 100px
+        width: 210px
+        position: relative
+        animation: fly 1.2s ease-in-out infinite alternate
+        &:hover
+            animation-play-state: paused
+        &:hover + .vehicle__wheels div
+            animation-play-state: paused
+        &:hover  .vehicle__body__tail div
+            animation-play-state: paused
+            // background: pink
+            animation: smoke-danger 2s ease-out infinite
+            // animation-delay: .6s
+            display: flex
+
+        &:hover ~ .salar .salar__dune
+            animation-play-state: paused
+        &__top
+            position: relative
+            background: $vehicle-color-2
+            border-radius: 20px 20px 15px 15px
+            width: 88%
+            height: 10px
+            top: 0
+            left: 50%
+            transform: translate(-55%,0)
+
+        &__forklift
+            width: 90px
+            height: 7px
+            background-color: black
+            border-radius: 5px
+            opacity: .95
+            position: relative
+            top: -25px
+            left: 75px
+            display: flex
+            z-index: 100
+            .rod
+                height: 12px
+                width: 6px
+                background-color: black
+                border-radius: 5%
+                position: relative
+                top: 3px
+                left: 8px
+                &:nth-of-type(2)
+                    left: 76px
+            .flag
+                width: 40px
+
+                position: relative
+                top: -30px
+                left: 18px
+                opacity: 1
+                transform: rotate(-10deg)
+
+                div
+                    animation: waving 1s ease-in-out infinite alternate-reverse
+                    background-size: 300px 100%
+                    position: relative
+                &__row-1
+                    width: 100%
+                    height: 8px
+                    background-color: red
+                &__row-2
+                    width: 100%
+                    height: 8px
+                    background-color: orange
+                &__row-3
+                    width: 100%
+                    height: 8px
+                    background-color: green
+                &::after
+                    content: ''
+                    position: absolute
+                    width: 3px
+                    height: 40px
+                    background: black
+                    position: absolute
+                    border-radius: 5px
+                    top: -1px
+                    left: 100%
+        &__suitcase
+            width: 50px
+            height: 100%
+            left: 50%
+            top: -40%
+            z-index: 1
+
+            .box__1
+                width: 35px
+                height: 20px
+                left: 0
+                top: 10px
+                border-radius: 50% 50% 67% 33% / 79% 61% 39% 21%
+            .box__2
+                width: 50px
+                height: 20px
+                border-radius: 66% 34% 84% 16% / 32% 65% 35% 68%
+                left: -30%
+                top: 20px
+                transform: rotate(10deg)
+            .box__3
+                width: 30px
+                height: 40px
+                left: 50%
+                bottom: 0
+                border-radius: 20%
+
+            div
+                background: $suitcase-color
+                opacity: .9
+
+        &__tail
+            height: 10px
+            width: 10px
+            background-color: black
+            position: relative
+            left: -10px
+            top: 65%
+            display: flex
+            opacity: 0.8
+            & div
+                border-radius: 50%
+                background-color: $smoke-color
+                position: absolute
+                animation: smoke $vehicle-interval ease-out infinite
+                &:nth-of-type(1)
+                    height: 12px
+                    width: 12px
+                    left: -9px
+                    top: 0
+                &:nth-of-type(2)
+                    height: 17px
+                    width: 17px
+                    left: -22px
+                    top: -9px
+                &:nth-of-type(3)
+                    height: 22px
+                    width: 22px
+                    left: -37px
+                    top: -19px
+                &:nth-of-type(4)
+                    display: none
+                    height: 25px
+                    width: 25px
+                    left: -40px
+                    top: -25px
+                &:nth-of-type(5)
+                    display: none
+
+                    height: 26px
+                    width: 26px
+                    left: -45px
+                    top: -27px
+
+                &:nth-of-type(6)
+                    display: none
+
+                    height: 27px
+                    width: 27px
+                    left: -50px
+                    top: -29px
+                &:nth-of-type(7)
+                    display: none
+
+                    height: 32px
+                    width: 32px
+                    left: -47px
+                    top: -35px
+                &:nth-of-type(8)
+                    display: none
+
+                    height: 37px
+                    width: 37px
+                    left: -47px
+                    top: -49px
+                &:nth-of-type(9)
+                    display: none
+
+                    height: 35px
+                    width: 35px
+                    left: -53px
+                    top: -55px
+                &:nth-of-type(10)
+                    display: none
+
+                    height: 35px
+                    width: 35px
+                    left: -57px
+                    top: -60px
+                &:nth-of-type(10)
+                    display: none
+
+                    height: 35px
+                    width: 35px
+                    left: -57px
+                    top: -70px
+                &:nth-of-type(11)
+                    display: none
+
+                    height: 37px
+                    width: 37px
+                    left: -67px
+                    top: -85px
+                &:nth-of-type(12)
+                    display: none
+
+                    height: 40px
+                    width: 40px
+                    left: -70px
+                    top: -95px
+                &:nth-of-type(13)
+                    display: none
+
+                    height: 50px
+                    width: 50px
+                    left: -70px
+                    top: -120px
+        &__light
+            height: 15px
+            width: 7px
+            background-color: $vehicle-color-3
+            position: absolute
+            border-radius: 2px
+            left: 99%
+            top: 75%
+            .spotlight
+                z-index: 1
+
+            .light
+                opacity: 0
+                position: relative
+                top: calc(50%)
+                left: 40px
+                transform: translate(0,-50%) rotate(-90deg)
+                // bottom: -8px
+                width: 100px
+                height: 200px
+                z-index: -1
+                clip-path: polygon(50% 0%, 0% 100%, 100% 100%)
+                background-image: linear-gradient(to bottom, orange 50%, rgba(255,0,0,0))
+        &__windows
+            height: 60px
+            display: flex
+            opacity: 0.8
+            background: $white
+            border-radius: 30px 50px 0 0
+            right: 0
+            div
+                position: relative
+                height: 30px
+                width: 35px
+                top: 15px
+                border-radius: 5px
+                opacity: .5
+                background: rgba($vehicle-color-2,.8)
+                &::before
+                    content: ''
+                    width: 100%
+                    height: 5px
+                    position: absolute
+                    background: $vehicle-color-3
+                    border-radius: 10px 10px 0 0
+                    z-index: 1
+
+                span
+                    height: 100%
+                    width: 45%
+                    background-color: $white
+                    opacity: 0.4
+                    position: absolute
+                    border-right: 0.7px solid
+                    border-color: $vehicle-color-1
+                &:nth-of-type(1)
+                    left: 10%
+
+                &:nth-of-type(2)
+                    left: 13%
+
+                &:nth-of-type(3)
+                    left: 16%
+
+                &:nth-of-type(4)
+                    left: 19%
+                    width: 45px
+                    border-radius: 5px 16px 5px 5px
+                    &::before
+                        content: ''
+                        width: 89%
+                        position: absolute
+                        background: $vehicle-color-3
+                        border-radius: 10px 20px 0 0
+                        z-index: 1
+
+        &__back
+            position: absolute
+            height: 22px
+            width: 46px
+            border-radius: 20px 20px 0 0
+            background-color: $vehicle-color-2
+            left: 18px
+            top: 78%
+            z-index: 100
+
+        &__front
+            position: absolute
+            height: 22px
+            width: 46px
+            border-radius: 20px 20px 0 0
+            background-color: $vehicle-color-2
+            left: 140px
+            top: 78%
+
+            bottom: 0
+            z-index: 100 !important
+
+    &__wheels
+        display: flex
+        height: 100%
+
+        div
+            height: 32px
+            width: 32px
+            background-color: $white
+            opacity: 0.9
+            border: 5px solid black
+            border-radius: 50%
+            position: relative
+
+            top: 85%
+            left: 40%
+            animation: rotate-whel $vehicle-interval linear infinite
+            &::after
+                content: ''
+                height: 5px
+                width: 5px
+                border-radius: 50%
+                background-color: $vehicle-color-3
+                position: absolute
+                top: 5px
+                left: 5px
+            &:last-of-type
+                left: 180%
+
+.vehicle .light
+    opacity: 0
+    transition: opacity 0.3s ease
+
+.vehicle .dark-mode
+    opacity: 1
+    animation: lights $timer linear normal
+
+.vehicle .light-mode
+    opacity: 0
+    animation: none
+
+@keyframes smoke
+    0%
+        opacity: 0
+        height: 0
+        width: 0
+        left: 0
+        top: 0
+    50%
+        opacity: 0.4
+
+    100%
+        opacity: 0
+
+@keyframes smoke-danger
+    0%
+        opacity: 0
+        height: 0
+        width: 0
+        left: 0
+        top: 0
+        background-color: #706e6e
+    50%
+        opacity: 0.8
+        background-color: #474444
+
+    70%
+        opacity: 0.6
+        background-color: #2a2929
+
+    100%
+        background-color: #393737
+        opacity: 0
+
+@keyframes rotate-whel
+    100%
+        transform: rotate(360deg)
+
+@keyframes fly
+    50%
+        top: 3px
+    100%
+        top: -3px
+
+@keyframes waving
+    0%
+        transform: matrix(-10,2,2,2)
+
+        top: 10%
+    100%
+        top: -10%
+        transform: matrix(-10,2,2,2)
+
+@keyframes lights
+    0%
+        opacity: 0
+    20%
+        opacity: .4
+    40%
+        opacity: .7
+    50%
+        opacity: 1
+    70%
+        opacity: .7
+    90%
+        opacity: .4
+    100%
+        opacity: .2
+
+.sky
+    width: 100%
+    height: 100%
+    pointer-events: all
+    position: relative
+
+    &.day-mode
+        background: linear-gradient(#ffcc00, #ff9347)
+        &::before, &::after
+            opacity: 1
+            animation: sky-day 1s linear forwards
+    &.night-mode
+        background: linear-gradient(#10172a 20%, #250900 , #b85107,)
+        &::before, &::after
+            opacity: 0.6
+            animation: sky-night 1s linear forwards
+    &__sun
+        width: 1000px
+        height: 1080px
+        top: -30px
+        right: 0
+        margin: auto
+        z-index: 1
+        filter: blur(10px) brightness(300%)
+
+        &.day-mode__sun
+            width: 100px
+            height: 100px
+            border-radius: 50%
+            background: radial-gradient($white, $sun)
+            right: 0
+            left: 40%
+            margin: auto
+            transform: rotate(0deg)
+        &.night-mode__sun
+            width: 60px
+            height: 60px
+            border-radius: 50%
+            box-shadow: inset -5px 20px 0 #ffffff
+            left: 40%
+            top: auto
+            transform: rotate(120deg)
+
+@function stars($a)
+    $random2: #ffffff
+    $value: "#{random(100 + 100)}vmin #{random(60)}vmin 0 -.#{random(2)}rem "+$random2
+
+    @for $i from 2 through $a
+        $random2: adjust-hue(#e0fbff, random(360))
+        $value: "#{$value} , #{random(100 + 100)}vmin #{random(60)}vmin 0 -.#{random(2)}rem "+$random2
+
+    @return unquote($value)
+
+$stars: stars(50)
+
+.stars
+    width: 100%
+    height: 80%
+    position: relative
+    top: 0
+    left: 0
+    right: 0
+    margin: auto
+    animation: stars $timer linear infinite
+    -webkit-box-reflect: below -300px
+    z-index: 0
+    &::before
+        content: ""
+        width: 5px
+        height: 5px
+        box-shadow: $stars
+        border-radius: 50%
+        position: absolute
+        top: 0
+        left: 0
+    i &::before, &::after
+        width: 5px
+        height: 5px
+        top: 3%
+        left: 3%
+        background: #fff
+        border-radius: 50%
+        animation: stars 1s linear infinite
+        opacity: 0.5
+        box-shadow: 0 0 10px #fff
+
+        &::after
+            top: 1%
+            left: 5%
+            animation: stars 1s 0.5s linear infinite
+            background: #ffffff
+
+@keyframes stars
+    50%
+        opacity: 1
