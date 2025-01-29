@@ -11,9 +11,9 @@ import {
 } from "@mui/material";
 import { FC, ReactNode } from "react";
 import { Outlet } from "react-router";
-import { useThemeContext } from "../context/ThemeContext";
 import Links from "../components/Links";
-import Logo from "../assets/logowaves.svg";
+import { useThemeContext } from "../context/ThemeContext";
+import Logo from "../components/Logo";
 
 const MainLayout = () => {
   const { darkMode, toggleTheme } = useThemeContext();

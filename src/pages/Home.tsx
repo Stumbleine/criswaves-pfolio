@@ -19,7 +19,7 @@ const PROFILE_BORDER_WIDTH = PROFILE_WIDTH + 8;
 const Home = () => {
   const [value, setValue] = useState("About");
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (newValue: string) => {
     setValue(newValue);
   };
   return (
@@ -89,7 +89,13 @@ const Home = () => {
           </Typography>
         </Stack>
         <Box sx={{ width: "100%" }}>
-          <Tabs value={value} onChange={handleChange} indicatorColor="primary">
+          <Tabs
+            value={value}
+            onChange={(_, value) => {
+              handleChange(value);
+            }}
+            indicatorColor="primary"
+          >
             <Tab value="About" label="About" sx={{ textTransform: "none" }} />
             <Tab
               value="Experience"

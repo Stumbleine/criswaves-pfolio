@@ -1,7 +1,5 @@
-import { Box, Grid2, IconButton, Link, Stack } from "@mui/material";
-import React from "react";
+import { Box, Grid2, IconButton } from "@mui/material";
 import { dataUser } from "../models/data";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Links = () => {
   return (

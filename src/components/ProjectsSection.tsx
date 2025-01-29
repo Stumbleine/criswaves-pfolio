@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { dataUser } from "../models/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const ProjectsSection = () => {

@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLinkedin,
   faGithub,
-  faTwitter,
   faCodepen,
 } from "@fortawesome/free-brands-svg-icons";
 import { User } from "./user";
@@ -18,7 +17,7 @@ export const dataUser: User = {
   about:
     "Hi, my name is Cristhian Mercado, and I am a Systems Engineer with over three years of experience as a developer. I consider myself motivated, ambitious, and proactive, thriving on challenges.\n\nMy career began as an intern at my university. Later, I worked with them, contributing to multiple projects, including a significant information system that benefited over 70,000 students. There, I worked with technologies like Angular, React, PHP, Node.js, and React Native.\n\nLater, at AssureSoft, I worked as a Mobile and Web Developer. I embraced the challenge of learning native mobile technologies, gaining proficiency in Kotlin, Java, and Jetpack Compose. I also transitioned to web development using React with TypeScript, PHP, and Node.js. A key project was a global e-commerce platform for auto parts, where I contributed to backend migration from Node.js version 10 to 16 and collaborated directly with clients.\n\nMost recently, at Compass Business, I focused on Frontend Development, designing and implementing UI/UX components for a financial platform using React, TypeScript, and Bootstrap.\n\nOutside work, I enjoy board games, chess, volleyball, calisthenics, and exploring new technology trends. On weekends, I like reading poetry or watching movies.",
   birthDate: "January 1st",
-  joinedDate: "Joined October 2021",
+  joinedDate: "Joined in 2021",
   status: "Available",
   languages: [
     { name: "Spanish", level: "Native" },

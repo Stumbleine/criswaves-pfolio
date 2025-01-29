@@ -9,7 +9,7 @@ interface ThemeContextProps {
 }
 
 const ThemeContext = createContext<ThemeContextProps>({
-  darkMode: false,
+  darkMode: true,
   toggleTheme: () => {},
 });
 
@@ -20,7 +20,7 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const storedTheme = localStorage.getItem("darkMode");
-    return storedTheme ? JSON.parse(storedTheme) : false; // Default a `false` si no hay valor guardado
+    return storedTheme ? JSON.parse(storedTheme) : true; // Default a `false` si no hay valor guardado
   });
 
   const toggleTheme = () => {
@@ -35,6 +35,8 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
     const storedTheme = localStorage.getItem("darkMode");
     if (storedTheme !== null) {
       setDarkMode(JSON.parse(storedTheme));
+    } else {
+      localStorage.setItem("darkMode", JSON.stringify(true));
     }
   }, []);
 
