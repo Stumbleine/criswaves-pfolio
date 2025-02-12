@@ -11,7 +11,7 @@ export const dataUser: User = {
   name: "Cristhian Mercado C.",
   nickname: "criswaves",
   headline:
-    "Full Stack Developer | Mobile Developer | React, React Native, Angular, Kotlin, Nest, PHP",
+    "Full Stack Developer | Mobile Developer | React, Angular, TypeScript, Nest, PHP, Kotlin",
   logo: "I build accessible and enjoyable experiences on the internet, designed to connect and impact people.",
   resumeUrl: "/CristhianCV.pdf",
   about:
@@ -21,7 +21,10 @@ export const dataUser: User = {
   status: "Available",
   languages: [
     { name: "Spanish", level: "Native" },
-    { name: "English", level: "B2+" },
+    {
+      name: "English",
+      level: "Advanced (B2+). In the process of achieving fluency (C1) ",
+    },
   ],
   skills: ["React", "React Native", "Kotlin", "TypeScript", "Node.js"],
   profilePicture: "/photo.JPG",
@@ -32,7 +35,7 @@ export const dataUser: User = {
       name: "Universidad Mayor de San Simon",
       dateJoined: "2016-02-01",
       dateFinished: "2022-02-01",
-      degree: "Systems Engineering",
+      degree: "Bachelor's Degree in Systems Engineering",
       location: { city: "Cochabamba", country: "Bolivia" },
     },
     certifications: [
@@ -70,7 +73,7 @@ export const dataUser: User = {
       description:
         "I have designed and developed this interactive animation using CodePen with CSS, Sass and HTML, representing an emblematic tourist place in my country.",
       url: "https://codepen.io/chang42/pen/wvEwbWe",
-      technologies: ["SASS", "HTML", "CSS"],
+      technologies: ["HTML", "SASS", "CSS", "CodePen"],
       img: "/Salar.png",
     },
     {
@@ -78,7 +81,8 @@ export const dataUser: User = {
       description:
         "I am currently developing a web application focused on learning and reinforcing English. The platform offers a wide variety of exercises designed to cover key aspects such as grammar, listening comprehension and reading. This project seeks to provide a comprehensive educational experience, combining interactive tools and dynamic content to improve users' language skills.",
       repositoryUrl: "https://github.com/Stumbleine/buffalo-talks",
-      technologies: ["React", "Material", "Tailwind CSS", "TypeScript"],
+      url: "https://buffalo-talks.vercel.app/",
+      technologies: ["React", "Material UI", "TypeScript"],
     },
     {
       title: "Dactilosaurio",
@@ -94,7 +98,14 @@ export const dataUser: User = {
       dateStarted: "2024-11-01",
       description:
         "I work as an AI model evaluator on various projects for Outlier. My role includes analyzing, improving, and providing feedback on the performance of models, ensuring their accuracy and effectiveness in real-world scenarios. I collaborate with large international teams, providing critical and strategic insight to optimize AI systems in different contexts.",
-      technologies: ["Querys", "Models"],
+      technologies: [
+        "IA Prompting",
+        "Logical and Critical Thinking",
+        "Attention to Detail",
+        "Data Analysis",
+        "Evaluation Criteria and Rubrics",
+        "Time Management",
+      ],
       links: [],
       company: {
         name: "Outlier",
@@ -226,7 +237,7 @@ export const dataUser: User = {
     },
     {
       name: "E-mail",
-      data: "cmercadocss@outlook.com",
+      data: "cmercadocss@gmail.com",
       icon: <FontAwesomeIcon icon={faEnvelope} />,
     },
   ],
