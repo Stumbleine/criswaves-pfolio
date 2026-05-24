@@ -8,14 +8,25 @@ import { User } from "./user";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export const dataUser: User = {
-  name: "Cristhian Mercado C.",
-  nickname: "criswaves",
+  name: "Cristhian Mercado Cespedes",
+  nickname: "criswvs_",
   headline:
-    "Full Stack Developer | Mobile Developer | React, Angular, TypeScript, Nest, PHP, Kotlin",
-  logo: "I build accessible and enjoyable experiences on the internet, designed to connect and impact people.",
-  resumeUrl: "/CristhianCV.pdf",
-  about:
-    "Hi, my name is Cristhian Mercado, and I am a Systems Engineer with over three years of experience as a developer. I consider myself motivated, ambitious, and proactive, thriving on challenges.\n\nMy career began as an intern at my university. Later, I worked with them, contributing to multiple projects, including a significant information system that benefited over 70,000 students. There, I worked with technologies like Angular, React, PHP, Node.js, and React Native.\n\nLater, at AssureSoft, I worked as a Mobile and Web Developer. I embraced the challenge of learning native mobile technologies, gaining proficiency in Kotlin, Java, and Jetpack Compose. I also transitioned to web development using React with TypeScript, PHP, and Node.js. A key project was a global e-commerce platform for auto parts, where I contributed to backend migration from Node.js version 10 to 16 and collaborated directly with clients.\n\nMost recently, at Compass Business, I focused on Frontend Development, designing and implementing UI/UX components for a financial platform using React, TypeScript, and Bootstrap.\n\nOutside work, I enjoy board games, chess, volleyball, calisthenics, and exploring new technology trends. On weekends, I like reading poetry or watching movies.",
+    "Senior Frontend Engineer | React, TypeScript, Performance, Scalable UI Systems",
+  logo: "I design scalable frontend systems and enterprise experiences focused on performance, maintainability, and long-term impact.",
+  resumeUrl: "/cv.pdf",
+  about: `
+  Hi, my name is Cristhian Mercado, and I am a Systems Engineer and Senior Frontend Engineer with experience building enterprise software, scalable frontend architectures, and high-performance web applications.
+
+  Over the years I have contributed across frontend, backend, and mobile ecosystems, working on solutions ranging from university systems serving more than 75,000 students to global e-commerce platforms, business planning systems, enterprise RFID management solutions, and analytics environments connected to Zebra NFL initiatives.
+
+  My primary expertise focuses on React, TypeScript, frontend architecture, performance optimization, scalable UI systems, MicroUI environments, and design system implementation. Throughout my career I have worked across React, Angular, Vue, Node.js, PHP, Kotlin, Java, and modern frontend ecosystems while adapting to different technical domains and business challenges.
+
+  Most recently I contribute to enterprise administrative and RFID device management platforms, leading modernization initiatives involving UI migration efforts, shared theming systems, MicroUI architectures, and scalable frontend foundations. My work includes collaborating with distributed engineering teams across multiple countries and US stakeholders while improving maintainability, performance, and long-term scalability.
+
+  I enjoy solving technical challenges involving architecture, frontend systems design, performance optimization, and building maintainable software that scales.
+
+  Outside engineering I enjoy poetry, painting, motorcycles, board games, chess, and exploring technology trends.
+  `,
   birthDate: "January 1st",
   joinedDate: "Joined in 2021",
   status: "Available",
@@ -26,9 +37,26 @@ export const dataUser: User = {
       level: "Advanced (B2+). In the process of achieving fluency (C1) ",
     },
   ],
-  skills: ["React", "React Native", "Kotlin", "TypeScript", "Node.js"],
+  skills: [
+    "React",
+    "TypeScript",
+    "Angular",
+    "Vue",
+    "Micro Frontends",
+    "Module Federation",
+    "Performance Optimization",
+    "Design Systems",
+    "SASS",
+    "TanStack Query",
+    "Redux",
+    "Node.js",
+    "PHP",
+    "Kotlin",
+    "AWS",
+  ],
   profilePicture: "/photo.JPG",
-  interests: "Filosofía, poesía, tecnología, y diseño de software.",
+  interests:
+    "Poetry, philosophy, software architecture, motorcycles, painting, board games, and technology exploration.",
   location: { city: "Santa Cruz", country: "Bolivia" },
   education: {
     university: {
@@ -69,6 +97,13 @@ export const dataUser: User = {
   },
   projects: [
     {
+      title: "Lexa",
+      description:
+        "Lexa is a browser extension that analyzes and highlights grammatical structures directly in the user's browser. It processes content locally and provides real-time feedback without sending data to external servers.",
+      repositoryUrl: "https://github.com/Stumbleine/lexa",
+      technologies: ["JS", "Preact", "CSS"],
+    },
+    {
       title: "Salar de Uyuni",
       description:
         "I have designed and developed this interactive animation using CodePen with CSS, Sass and HTML, representing an emblematic tourist place in my country.",
@@ -94,10 +129,80 @@ export const dataUser: User = {
   ],
   experiences: [
     {
+      role: "Senior Frontend Developer",
+      dateStarted: "2026-02-01",
+      description: `
+Enterprise RFID device management platforms supporting operational workflows and hardware ecosystems. Contributing to frontend modernization initiatives involving MicroUI architectures, shared theming systems, UI migration efforts, and scalable frontend foundations using React and TypeScript.
+Collaborate with distributed engineering teams across multiple countries and US stakeholders while contributing performance improvements and long-term maintainability initiatives. Also contributed to Vue 2 to Vue 3 migration efforts for Zebra NFL-related analytics environments.
+`,
+      challenges: [
+        "Large-scale enterprise frontend scalability",
+        "UI migration initiatives",
+        "Shared theming consistency across MicroUI environments",
+        "Frontend performance optimization",
+        "Cross-team collaboration across distributed international teams",
+      ],
+      technologies: [
+        "React",
+        "Typescript",
+        "TanStack",
+        "Vue",
+        "SASS",
+        "Spring Boot",
+        "Micro Frontends",
+        "Module Federation (Vite)",
+      ],
+      links: [],
+      company: {
+        name: "New Vision Data",
+        website: "https://www.newvisiondata.com/",
+      },
+      employmentType: "full-time",
+    },
+    {
+      role: "Lead Frontend Developer",
+      dateStarted: "2025-02-01",
+      dateEnded: "2026-01-01",
+
+      description: `
+Led frontend development initiatives across internal administrative platforms, contributing frontend architecture decisions, UI quality standards, and technical execution using React and TypeScript.
+Coordinated engineering efforts across frontend, backend, and mobile teams while collaborating with stakeholders to align technical delivery with business priorities. Helped establish engineering processes involving sprint planning, PR review practices, coding standards, reporting structures, ticket workflows, and technical alignment discussions.
+`,
+
+      challenges: [
+        "Cross-team coordination across frontend, backend, and mobile teams",
+        "Establishing engineering processes and development standards",
+        "Balancing delivery timelines with software quality",
+        "Improving team operational efficiency",
+        "Technical alignment between engineering and business stakeholders",
+      ],
+
+      technologies: [
+        "React",
+        "TypeScript",
+        "Scrum",
+        "Jira",
+        "Git",
+        "PR Reviews",
+        "Frontend Architecture",
+        "Technical Leadership",
+      ],
+
+      links: [],
+
+      company: {
+        name: "New Vision Data",
+        website: "https://www.newvisiondata.com/",
+      },
+
+      employmentType: "full-time",
+    },
+    {
       role: "IA Trainer",
       dateStarted: "2024-11-01",
       description:
         "I work as an AI model evaluator on various projects for Outlier. My role includes analyzing, improving, and providing feedback on the performance of models, ensuring their accuracy and effectiveness in real-world scenarios. I collaborate with large international teams, providing critical and strategic insight to optimize AI systems in different contexts.",
+
       technologies: [
         "IA Prompting",
         "Logical and Critical Thinking",
@@ -117,8 +222,15 @@ export const dataUser: User = {
       role: "Full Stack Developer",
       dateStarted: "2024-10-01",
       dateEnded: "2025-01-01",
-      description:
-        "I was part of the development team for a web platform focused on strategic business planning. This tool is designed to support companies of all sizes in achieving their goals step by step through interactive dashboards, inspired by methodologies such as Lean. Additionally, it features financial modules that enable users to project their variable and fixed costs, among other key indicators, on a quarterly, monthly, and annual basis, facilitating informed decision-making",
+      description: `
+Strategic business planning platform designed to help organizations manage objectives, operational planning, and financial forecasting through interactive dashboards and analytical modules.
+I contributed to frontend development using React and TypeScript while collaborating on backend services and financial data visualization features. The platform supported quarterly, monthly, and annual business projections, helping organizations make informed operational decisions.
+`,
+      challenges: [
+        "Translating complex business concepts into intuitive UI experiences.",
+        "Maintaining consistency across dashboard modules.",
+        "Handling financial projection data and analytical visualizations.",
+      ],
       technologies: [
         "React",
         "Typescript",
@@ -137,11 +249,19 @@ export const dataUser: User = {
       employmentType: "full-time",
     },
     {
-      role: "Web Developer",
+      role: "Full Stack Developer",
       dateStarted: "2022-10-01",
       dateEnded: "2024-08-01",
-      description:
-        "I worked on multiple projects as a Web Developer, one of the them was the development of new features and bug fixes for global e-commerce systems. I also supported migrations to upgraded versions of Node.js, along with all related dependencies, which reduced development time, improved scalability and enabled the addition of new features that were made possible by these upgrades. During this experience, I gained valuable insights by working closely with US native clients, collaborating with them in person to ensure the success of projects",
+      description: `
+Worked across multiple enterprise web initiatives, including global e-commerce systems focused on auto parts distribution and large-scale business operations.
+My responsibilities included frontend feature development, backend integrations, technical debt reduction initiatives, and Node.js migration efforts that improved maintainability and enabled future platform capabilities. I collaborated directly with US stakeholders, including in-person discussions, translating business requirements into scalable software solutions.
+`,
+      challenges: [
+        "Legacy system modernization",
+        "Node.js migration efforts",
+        "Technical debt reduction",
+        "Cross-functional collaboration",
+      ],
       technologies: [
         "React",
         "JavaScript",
@@ -165,8 +285,16 @@ export const dataUser: User = {
       role: "Mobile Developer",
       dateStarted: "2022-10-01",
       dateEnded: "2024-08-01",
-      description:
-        "I worked as a mobile developer on a social media-like application focused on discovering football talents from a young age. The app allowed users to upload, edit, and view videos on a feed, as well as manage player profiles, including their career history, teams, clubs, and matches. It was developed natively using Kotlin and modern technologies like Jetpack Compose. Additionally, I performed testing and profiling to optimize video playback performance and caching, ensuring a seamless user experience.",
+      description: `
+Native Android application focused on discovering young football talent through social-style experiences, player profiles, and video-driven interactions.
+I contributed to mobile architecture, profile systems, media experiences, and performance optimization initiatives involving caching strategies and video playback improvements using Kotlin and Jetpack Compose.
+`,
+      challenges: [
+        "Video playback optimization",
+        "Caching strategies",
+        "Mobile architecture decisions",
+        "Application lifecycle complexity",
+      ],
       technologies: [
         "Android Studio",
         "Jetpack Compose",
@@ -187,8 +315,16 @@ export const dataUser: User = {
       role: "Full Stack Developer",
       dateStarted: "2021-10-01",
       dateEnded: "2022-12-31",
-      description:
-        "I was part of a team that developed an information system benefiting over 75,000 university students. This system enabled companies and businesses affiliated with the university to post product and service offers through a web platform, primarily designed for university staff. It also included features for managing usage reports, users, and generating statistics based on student preferences. Students could access these offers via a mobile application, authenticate themselves with their university credentials, and claim the offers directly from the app. Through this experience, I gained skills in managing small teams using agile frameworks like Kanban and deepened my knowledge of developing systems tailored to public institutions. ",
+      description: `
+University information system serving over 75,000 students, enabling organizations affiliated with the institution to publish offers, manage analytics, and improve engagement workflows.
+I worked across frontend and backend development using React, PHP, Node.js, and supporting services while contributing reporting systems, statistical analysis features, and operational management capabilities.
+`,
+      challenges: [
+        "Public-sector scalability requirements",
+        "Large institutional workload support",
+        "Operational reporting systems",
+        "Balancing usability and system complexity",
+      ],
       technologies: [
         "React",
         "Redux",
@@ -211,8 +347,10 @@ export const dataUser: User = {
       role: "Frontend Developer",
       dateStarted: "2021-10-01",
       dateEnded: "2022-03-01",
-      description:
-        "I gained experience as an intern as a frontend developer on several projects, focusing on the design and development of the user interface (UI) and user experience (UX) for a web platform intended for the University's departments. The platform allowed staff to oversee funding processes and applications, improved workflows, and enhanced decision-making within the institution.",
+      description: `
+Contributed to internal university administrative systems focused on funding processes, operational visibility, and institutional workflows.
+Worked on frontend experiences and UI implementation while learning software delivery practices, agile collaboration, and user-centered interface design.
+`,
       technologies: [
         "Angular",
         "React",

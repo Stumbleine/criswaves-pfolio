@@ -79,6 +79,7 @@ interface Experience {
   links?: Link[];
   company: Company;
   employmentType: employmentType;
+  challenges?: string[]
 }
 
 interface Company {

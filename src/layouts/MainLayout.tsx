@@ -89,7 +89,7 @@ const Page: FC<{ children: ReactNode }> = ({ children }) => {
       >
         <Links />
         <Typography variant="body2" color="textSecondary">
-          © 2025 criswaves. All rights reserved.
+          © 2025 criswvs_. All rights reserved.
         </Typography>
       </Box>
     </Container>
